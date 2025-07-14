@@ -1,0 +1,28 @@
+name: Build Java File
+
+on: 
+  push: 
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Validate the syntax
+        run: mvn validate
+
+      - name: Do a clean Package and install
+        run: mvn clean install
+
+      - name: List the build artifact
+        run: ls target/
+ 
+
+
+ 
+
